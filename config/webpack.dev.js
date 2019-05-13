@@ -3,6 +3,8 @@ const merge = require('webpack-merge');
 
 const commonConfig = require('./webpack.common');
 
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = merge(commonConfig, {
   devtool: 'eval-source-map',
 
@@ -17,6 +19,11 @@ module.exports = merge(commonConfig, {
   output: {
     filename: 'js/[name].js',
     chunkFilename: '[id].chunk.js'
+  },
+
+
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
   },
 
   devServer: {
