@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754291f2-90f6-439b-be8c-6c7df9f623ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/js/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="61" column="36" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="36" />
+            <state relative-caret-position="189">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/webpack.dev.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+            <state relative-caret-position="399">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -105,10 +104,13 @@
       <find>handle close</find>
       <find>rsvp-content</find>
       <find>content</find>
-      <find>listen</find>
       <find>&quot;uglifyjs-webpack-plugin&quot;</find>
       <find>isProd</find>
       <find>NODE_ENV</find>
+      <find>'../config/config'</find>
+      <find>listen</find>
+      <find>config</find>
+      <find>mongoose</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,10 +124,10 @@
         <option value="$PROJECT_DIR$/client/app/components/Home/Home.js" />
         <option value="$PROJECT_DIR$/client/app/components/HelloWorld/HelloWorld.js" />
         <option value="$PROJECT_DIR$/client/app/styles/styles.scss" />
-        <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/config/webpack.prod.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/webpack.dev.js" />
+        <option value="$PROJECT_DIR$/server/server.js" />
       </list>
     </option>
   </component>
@@ -243,12 +245,12 @@
       <updated>1553407627888</updated>
       <workItem from="1553407635008" duration="1838000" />
       <workItem from="1557702024499" duration="7425000" />
-      <workItem from="1557726360968" duration="1967000" />
+      <workItem from="1557726360968" duration="2257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11230000" />
+    <option name="totallyTimeSpent" value="11520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -346,13 +348,6 @@
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="854">
@@ -366,9 +361,6 @@
           <caret line="9388" column="32" lean-forward="true" selection-start-line="9388" selection-start-column="32" selection-end-line="9388" selection-end-column="32" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/webpack.common.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -386,8 +378,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/webpack.dev.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        <state relative-caret-position="399">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
