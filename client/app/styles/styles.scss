@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+@import 'vendor/normalize';
+
+@font-face {
+  font-family: harry;
+  src: url('/assets/font/harry2.ttf');
+}
+@font-face {
+  font-family: harry2;
+  src: url('/assets/font/harry2.ttf');
+}
+
+@font-face {
+  font-family: gold_snitch;
+  src: url('/assets/font/gold_snitch.ttf');
+}
+.content {
+  position: static;
+  background: rgb(251, 251, 247);
+  color: #707070;
+  width: 30%;
+  margin-left: auto;
+  height: 3250px;
+  overflow: auto;
+  text-align: center;
+
+  .welcome {
+    min-height: 95svh;
+  }
+
+  .location {
+    font-family: harry;
+    font-size: 30px;
+    margin-bottom: 70px;
+  }
+
+  .time {
+    font-family: harry2;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-image: url('/assets/img/hog-logo.png');
+    background-position: center center;
+    background-size: 100% 100%;
+
+    height: 180px;
+    width: 180px;
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  .button {
+    font-size: 65px;
+    margin-top: 25px;
+    display:inline-block;
+    font-family: gold_snitch;
+    letter-spacing: -30px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: #DAA520	;
+  }
+}
+
+.photo {
+  overflow: hidden;
+  width: 70%;
+  background-image: url('/assets/img/bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  position: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  .title {
+    position: fixed;
+    left: 120px;
+    bottom: 150px;
+    font-family: harry;
+    font-size: 45px;
+    color: white;
+  }
+}
+
+.modal-body {
+  font-size: 18px;
+}
+
+.rsvp-content {
+  position: static;
+  background: rgb(251, 251, 247);
+  color: #707070;
+  width: 30%;
+  margin-left: auto;
+  height: 3250px;
+  overflow: auto;
+  font-family: harry;
+
+  .form-container{
+    padding: 15px;
+  }
+
+  .welcome {
+    min-height: 95svh;
+  }
+
+  .location {
+    font-family: harry;
+    font-size: 30px;
+    margin-bottom: 70px;
+  }
+
+  .time {
+    font-family: harry2;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-image: url('/assets/img/hog-logo.png');
+    background-position: center center;
+    background-size: 100% 100%;
+
+    height: 180px;
+    width: 180px;
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  .button {
+    font-size: 65px;
+    margin-top: 25px;
+    display:inline-block;
+    font-family: gold_snitch;
+    letter-spacing: -30px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: #DAA520	;
+  }
+}
