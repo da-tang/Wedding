@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -13,29 +12,31 @@ class Home extends Component {
 
     this.state = {
       counters: [],
-      show: false,
+      showRSVP: false,
+      showQuestion: false,
     };
 
-    this.openRSVP = this.openRSVP.bind(this);
-    this.closeRSVP = this.closeRSVP.bind(this);
+    this.toggleRSVP = this.toggleRSVP.bind(this);
+    this.findTicket = this.findTicket.bind(this);
   }
 
-  openRSVP() {
-    window.location.href = "/rsvp";
-  }
-
-  closeRSVP() {
+  toggleRSVP() {
+    const current = this.state.showRSVP;
     this.setState({
-      show: false
+      showRSVP: !current
+    });
+  }
+
+  findTicket() {
+    const current = this.state.showQuestion;
+    this.setState({
+      showQuestion: !current
     });
   }
 
   render() {
     return (
       <>
-        <div className="photo">
-          <div className="title"> Larry & Kimberly </div>
-        </div>
         <div className="content">
           <div className="welcome">
             <div className="logo" />
@@ -52,57 +53,81 @@ class Home extends Component {
             <br/>
               105 Days From Now
             </div>
-            <div className="button" onClick={this.openRSVP}>
+            <div className="button" onClick={this.toggleRSVP}>
               RSVP
             </div>
+            { (this.state.showRSVP && !this.state.showQuestion) && (
+              <div className="rsvp-content ticket-content">
+                <Form>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={3}>
+                      Ticket No.
+                    </Form.Label>
+                    <Col sm={9}>
+                      <Form.Control type="text" placeholder="Left side of the ticket" />
+                    </Col>
+                  </Form.Group>
+                  <Button variant="secondary" onClick={this.findTicket}>Find My Train Ticket</Button>
+                </Form>
+              </div>
+            )}
+
+            { this.state.showQuestion && (
+              <div className="rsvp-content question-content">
+                Welcome to the Journey, Piyush!
+                <Form>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                      Accompany guests?
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Control type="number"/>
+                    </Col>
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                      Kids or babies?
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Control type="number"/>
+                    </Col>
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                      Their Names?
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Group>
+                        <Form.Control as="textarea" rows="3" placeholder="" />
+                      </Form.Group>
+                    </Col>
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={4}>
+                      Diet restriction?
+                    </Form.Label>
+                    <Col sm={8}>
+                      <Form.Group controlId="vegan" className="diet-option">
+                        <Form.Check type="checkbox" label="Vegan or Vegetarian" />
+                      </Form.Group>
+                    </Col>
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                    <Form.Label column sm={4} />
+                    <Col sm={8}>
+                      <Form.Group>
+                        <Form.Control as="textarea" className="diet-text" rows="3" placeholder="Let Us Know About Other Diet Restrictions" />
+                      </Form.Group>
+                    </Col>
+                  </Form.Group>
+                </Form>
+              </div>
+            )}
           </div>
         </div>
-        <Modal
-          show={this.state.show}
-          onHide={this.closeRSVP}
-          style={{opacity:1}}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>RSVP</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="modal-body">
-            <Form>
-              <Form.Group as={Row}>
-                <Form.Label column sm={6}>
-                  Full Name
-                </Form.Label>
-                <Col sm={6}>
-                  <Form.Control type="text" placeholder="Let us know who you are" />
-                </Col>
-              </Form.Group>
-
-              <Form.Group as={Row}>
-                <Form.Label column sm={6}>
-                  Are you coming to celebrate?
-                </Form.Label>
-                <Col sm={6}>
-                  <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control as="select">
-                      <option>Absolutely</option>
-                      <option>I'm so sad. I can't make it</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Col>
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.closeRSVP}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={this.closeRSVP}>
-              Continue
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <div className="photo">
+          <div className="title"> Larry & Kimberly </div>
+        </div>
       </>
     );
   }
