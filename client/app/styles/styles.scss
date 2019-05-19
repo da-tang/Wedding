@@ -19,6 +19,11 @@
   src: url('/assets/font/harry4.ttf');
 }
 
+@font-face {
+  font-family: hand1;
+  src: url('/assets/font/Odachi.otf');
+}
+
 
 @font-face {
   font-family: gold_snitch;
@@ -41,19 +46,18 @@ body {
   overflow: auto;
   text-align: center;
 
-
   .welcome {
     min-height: 95svh;
   }
 
   .location {
-    font-family: harry3;
+    font-family: harry4;
     font-size: 30px;
     margin-bottom: 70px;
   }
 
   .time {
-    font-family: harry3;
+    font-family: harry4;
     font-size: 30px;
     margin-bottom: 30px;
   }
@@ -107,18 +111,24 @@ body {
 
 .rsvp-content {
   text-align: left;
-  font-family: harry4;
   padding: 20px;
   font-size: 26px;
   overflow: hidden;
+  font-family: harry4;
+  font-weight: 100;
+  letter-spacing: 1px;
 
 
   .form-control {
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 100;
+    letter-spacing: 1px;
   }
 
   .btn {
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 100;
+    letter-spacing: 1px;
   }
 }
 
@@ -129,8 +139,3 @@ body {
 .diet-option {
   padding-top: 10px;
 }
-
-.diet-text {
-  margin-top: -25px;
-}
-

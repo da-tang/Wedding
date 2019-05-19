@@ -1,51 +1,26 @@
-const Counter = require('../../models/Counter');
+var db = require('../../db');
 
 module.exports = (app) => {
-  app.get('/api/counters', (req, res, next) => {
-    Counter.find()
-      .exec()
-      .then((counter) => res.json(counter))
-      .catch((err) => next(err));
+  app.get('/invitation/:ticket', (request, response) => {
+    console.log(request.params.ticket);
+    db.query('SELECT * FROM invite where ticket = $1', [request.params.ticket],(error, result) => {
+      if (error) throw error;
+      response.send(result);
+    });
   });
 
-  app.post('/api/counters', function (req, res, next) {
-    const counter = new Counter();
+  app.post('/invitation', function (request, response) {
+    var input = request.body.input;
+    var d = new Date();
 
-    counter.save()
-      .then(() => res.json(counter))
-      .catch((err) => next(err));
-  });
+    var datestring = d.getFullYear() + '-' + (d.getMonth()+1)  + "-" + (d.getDate()) + " " +
+      d.getHours() + ":" + d.getMinutes();
 
-  app.delete('/api/counters/:id', function (req, res, next) {
-    Counter.findOneAndRemove({ _id: req.params.id })
-      .exec()
-      .then((counter) => res.json())
-      .catch((err) => next(err));
-  });
-
-  app.put('/api/counters/:id/increment', (req, res, next) => {
-    Counter.findById(req.params.id)
-      .exec()
-      .then((counter) => {
-        counter.count++;
-
-        counter.save()
-          .then(() => res.json(counter))
-          .catch((err) => next(err));
-      })
-      .catch((err) => next(err));
-  });
-
-  app.put('/api/counters/:id/decrement', (req, res, next) => {
-    Counter.findById(req.params.id)
-      .exec()
-      .then((counter) => {
-        counter.count--;
-
-        counter.save()
-          .then(() => res.json(counter))
-          .catch((err) => next(err));
-      })
-      .catch((err) => next(err));
-  });
+    db.query('UPDATE invite SET guest=$1, guestname=$2, baby=$3, vegan=$4, other=$5, time=$6 where ticket =$7',
+      [input.guest, input.guestName, input.baby, input.vegan, input.other, datestring, input.ticketNo],(error, result) => {
+        if (error) throw error;
+        console.log(result);
+        response.send(result);
+      });
+  })
 };
