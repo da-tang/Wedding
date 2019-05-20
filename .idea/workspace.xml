@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="754291f2-90f6-439b-be8c-6c7df9f623ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/app/styles/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/styles/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/components/Home/Home.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/js/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/components/Home/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1357">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="333">
+              <caret line="245" column="41" lean-forward="true" selection-start-line="245" selection-start-column="41" selection-end-line="245" selection-end-column="41" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/styles/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="167" column="1" lean-forward="true" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
+            <state relative-caret-position="355">
+              <caret line="196" column="9" lean-forward="true" selection-start-line="196" selection-start-column="9" selection-end-line="196" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -96,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/server/db.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -105,7 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SECRET</find>
       <find>ticketOnChange</find>
       <find>dc3sgr0m1en95o</find>
       <find>ticketNo</find>
@@ -131,10 +130,11 @@
       <find>travel-title</find>
       <find>harry2</find>
       <find>harry3</find>
-      <find>hand1</find>
       <find>details</find>
       <find>console.log</find>
+      <find>hand1</find>
       <find>confirmed</find>
+      <find>activity</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,10 +151,10 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/client/app/components/Home/Home.js" />
         <option value="$PROJECT_DIR$/server/routes/api/counters.js" />
         <option value="$PROJECT_DIR$/server/db.js" />
         <option value="$PROJECT_DIR$/client/app/styles/styles.scss" />
+        <option value="$PROJECT_DIR$/client/app/components/Home/Home.js" />
       </list>
     </option>
   </component>
@@ -323,12 +323,12 @@
       <workItem from="1558080405124" duration="22657000" />
       <workItem from="1558195867674" duration="4205000" />
       <workItem from="1558214334718" duration="7171000" />
-      <workItem from="1558283392017" duration="14547000" />
+      <workItem from="1558283392017" duration="15579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77603000" />
+    <option name="totallyTimeSpent" value="78635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -518,6 +518,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -525,27 +532,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/db.js">
+    <entry file="file://$PROJECT_DIR$/client/app/styles/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state relative-caret-position="355">
+          <caret line="196" column="9" lean-forward="true" selection-start-line="196" selection-start-column="9" selection-end-line="196" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/components/Home/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1357">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="333">
+          <caret line="245" column="41" lean-forward="true" selection-start-line="245" selection-start-column="41" selection-end-line="245" selection-end-column="41" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/styles/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="167" column="1" lean-forward="true" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
         </state>
       </provider>
     </entry>

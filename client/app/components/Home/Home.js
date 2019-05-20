@@ -244,7 +244,8 @@ class Home extends Component {
                 <div> 4:00 PM - Cocktail Hour </div>
                 <div> 5:00 PM - Dinner </div>
                 <div> 7:45 PM - First Dance </div>
-                <div> 8:15 PM - Cake, Late Night Station </div>
+                <div> 8:15 PM - Cake </div>
+                <div> 8:30 PM - Late Night Station </div>
               </div>
 
               <div className="travel-title">
