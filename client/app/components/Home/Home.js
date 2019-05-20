@@ -122,6 +122,7 @@ class Home extends Component {
           <div className="welcome">
             <div className="photo-mobile">
               <div className="title-mobile"> Larry & Kimberly</div>
+              <div className="always-logo-mobile" />
             </div>
             <div className="logo"/>
             <div className="location">
@@ -256,6 +257,7 @@ class Home extends Component {
         </div>
         <div className="photo">
           <div className="title">Larry & Kimberly</div>
+          <div className="always-logo" />
         </div>
         <ToastContainer />
 
