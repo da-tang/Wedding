@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal';
 import Countdown from 'react-countdown-now';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,6 +23,7 @@ class Home extends Component {
       vegan: false,
       other: '',
       edit: false,
+      showModal: false,
     };
 
     this.toggleRSVP = this.toggleRSVP.bind(this);
@@ -29,6 +31,8 @@ class Home extends Component {
     this.ticketOnChange = this.ticketOnChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.confirmBooking = this.confirmBooking.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
 
@@ -62,7 +66,6 @@ class Home extends Component {
             toast.error('🦉🦉🦉🦉 Cannot find your ticket... Ticket Number is on the left side of your ticket. Please try again! 🧙🧙🧙🧙', {position: toast.POSITION.BOTTOM_RIGHT});
           } else {
             const detail = result.rows[0];
-            console.log(detail);
             this.setState({
               fullName: detail.fullname,
               showQuestion: true,
@@ -83,13 +86,25 @@ class Home extends Component {
     axios.post(`/invitation`, { input: this.state })
       .then(res => {
         if (res.data.rowCount === 1) {
-          toast.success('Your booking has been confirmed. You can edit it by entering the Ticket No again.', {position: toast.POSITION.BOTTOM_RIGHT});
+          toast.success('🦉🦉🦉🦉 Your booking has been confirmed. You can edit it by entering the Ticket No again. 🧙🧙🧙🧙', {position: toast.POSITION.BOTTOM_RIGHT});
           this.setState({
             showQuestion: false,
             showRSVP: false
           })
         }
       });
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false
+    });
+  }
+
+  openModal() {
+    this.setState({
+      showModal: true
+    });
   }
 
   render() {
@@ -105,6 +120,9 @@ class Home extends Component {
       <>
         <div className="content">
           <div className="welcome">
+            <div className="photo-mobile">
+              <div className="title-mobile"> Larry & Kimberly</div>
+            </div>
             <div className="logo"/>
             <div className="location">
               Paletta Mansion
@@ -136,7 +154,8 @@ class Home extends Component {
                       <Form.Control onChange={this.ticketOnChange} type="text" placeholder="Left side of the ticket"/>
                     </Col>
                   </Form.Group>
-                  <Button variant="secondary" onClick={this.findTicket}>Find My Train Ticket</Button>
+                  <Button variant="secondary" className="float-right find-button" onClick={this.findTicket}>Manage My Reservation</Button>
+                  <Button variant="info"  className="float-right" onClick={this.openModal}>Need Help?</Button>
                 </Form>
               </div>
             )}
@@ -197,21 +216,61 @@ class Home extends Component {
                     </Form.Label>
                     <Col sm={8}>
                       <Form.Group>
-                        <Form.Control  value={this.state.other} as="textarea" name="other" rows="8" onChange={this.handleInputChange}
-                                      placeholder="Let us know about other diet restrictions. Or if you need help with transportation or accommodation"/>
+                        <Form.Control
+                          value={this.state.other}
+                          as="textarea"
+                          name="other"
+                          rows="8"
+                          onChange={this.handleInputChange}
+                          placeholder="Let us know about other diet restrictions. Or if you need help with transportation or accommodation"
+                        />
                       </Form.Group>
                     </Col>
                   </Form.Group>
-                  <Button variant="secondary" onClick={this.confirmBooking}>Confirm My Booking</Button>
+                  <Button variant="secondary" className="float-right" onClick={this.confirmBooking}>Confirm My Booking</Button>
                 </Form>
               </div>
+
             )}
           </div>
+          { (!this.state.showRSVP && !this.state.showQuestion) && (
+            <div className="schedule">
+              <div className="schedule-title">
+                Your Magical Adventure Timeline
+              </div>
+              <div className="activity">
+                <div> 3:00 PM - Guests Arrival </div>
+                <div> 3:30 PM - Ceremony </div>
+                <div> 4:00 PM - Cocktail Hour </div>
+                <div> 5:00 PM - Dinner </div>
+                <div> 7:45 PM - First Dance </div>
+                <div> 8:15 PM - Cake, Late Night Station </div>
+              </div>
+
+              <div className="travel-title">
+                Need Help Finding 9 3/4 Platform? Please Indicate In Your Booking Details.
+              </div>
+            </div>
+          ) }
         </div>
         <div className="photo">
-          <div className="title"> Larry & Kimberly</div>
+          <div className="title">Larry & Kimberly</div>
         </div>
         <ToastContainer />
+
+        <Modal show={this.state.showModal} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>How to find my Ticket No.?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="sample-tt" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.closeModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </>
     );
   }

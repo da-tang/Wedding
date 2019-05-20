@@ -3,14 +3,6 @@
 @import 'vendor/normalize';
 
 @font-face {
-  font-family: harry;
-  src: url('/assets/font/harry2.ttf');
-}
-@font-face {
-  font-family: harry2;
-  src: url('/assets/font/harry2.ttf');
-}
-@font-face {
   font-family: harry3;
   src: url('/assets/font/harry3.ttf');
 }
@@ -18,12 +10,6 @@
   font-family: harry4;
   src: url('/assets/font/harry4.ttf');
 }
-
-@font-face {
-  font-family: hand1;
-  src: url('/assets/font/Odachi.otf');
-}
-
 
 @font-face {
   font-family: gold_snitch;
@@ -46,21 +32,59 @@ body {
   overflow: auto;
   text-align: center;
 
+  @media only screen and (max-width: 730px) {
+    min-width: 0;
+    width: 100%;
+    .photo-mobile {
+      position: relative;
+      background-image: url('/assets/img/bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      height: 400px;
+
+      .title-mobile {
+        position: absolute;
+        left: 20px;
+        bottom: 50px;
+        font-family: harry3;
+        font-size: 45px;
+        color: white;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 731px) {
+    .title-mobile {
+      display: none;
+    }
+  }
+
   .welcome {
     min-height: 95svh;
   }
 
   .location {
     font-family: harry4;
-    font-size: 30px;
-    margin-bottom: 70px;
+    font-size: 38px;
+    margin-bottom: 20px;
   }
 
   .time {
     font-family: harry4;
-    font-size: 30px;
+    font-size: 34px;
     margin-bottom: 30px;
   }
+
+    .always-logo {
+      background-image: url('/assets/img/always.png');
+      background-position: center center;
+      background-size: 100% 100%;
+      height: 240px;
+      width: 240px;
+      display: inline-block;
+    }
 
   .logo {
     margin-top: 20px;
@@ -69,8 +93,8 @@ body {
     background-position: center center;
     background-size: 100% 100%;
 
-    height: 180px;
-    width: 180px;
+    height: 240px;
+    width: 240px;
     display: inline-block;
     padding-right: 5px;
   }
@@ -88,25 +112,28 @@ body {
 }
 
 .photo {
-
+  position: relative;
   background-image: url('/assets/img/bg.jpg');
-  background-size: cover;
   background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   height:100vh;
   .title {
-    position: fixed;
+    position: absolute;
     left: 120px;
     bottom: 150px;
-    font-family: harry;
+    font-family: harry3;
     font-size: 45px;
     color: white;
   }
 }
 
-.modal-body {
-  font-size: 18px;
+.modal-content {
+  font-family: harry4;
+  .btn {
+    letter-spacing: 2px;
+  }
 }
 
 .rsvp-content {
@@ -138,4 +165,47 @@ body {
 
 .diet-option {
   padding-top: 10px;
+}
+
+.find-button {
+  margin-left: 15px;
+}
+
+.sample-tt {
+  background-image: url('/assets/img/tt.jpg');
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 250px;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn {
+  transition: transform .2s;
+}
+
+.schedule {
+  font-family: harry4;
+  font-size: 35px;
+  padding: 15px;
+  letter-spacing: 1px;
+
+  .date {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .activity {
+    padding-left: 20px;
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .travel-title {
+    margin-top: 30px;
+    font-size: 24px;
+  }
 }
