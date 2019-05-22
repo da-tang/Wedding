@@ -152,7 +152,7 @@ class Home extends Component {
                       Ticket No.
                     </Form.Label>
                     <Col sm={9}>
-                      <Form.Control onChange={this.ticketOnChange} type="text" placeholder="Left side of the ticket"/>
+                      <Form.Control onChange={this.ticketOnChange} type="text" placeholder="5-digit Number"/>
                     </Col>
                   </Form.Group>
                   <Button variant="secondary" className="float-right find-button" onClick={this.findTicket}>Manage My Reservation</Button>
