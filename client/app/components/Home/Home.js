@@ -25,6 +25,7 @@ class Home extends Component {
       edit: false,
       showModal: false,
       come: true,
+      seconds: 0,
     };
 
     this.toggleRSVP = this.toggleRSVP.bind(this);
@@ -37,6 +38,21 @@ class Home extends Component {
     this.comeToWedding = this.comeToWedding.bind(this);
     this.notComeToWedding = this.notComeToWedding.bind(this);
   }
+
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
 
 
   toggleRSVP() {
@@ -163,9 +179,16 @@ class Home extends Component {
                 renderer={renderer}
               />
             </div>
-            <div className="button" onClick={this.toggleRSVP}>
-              RSVP
-            </div>
+            {this.state.seconds % 2 === 0 && (
+              <div className="button" onClick={this.toggleRSVP}>
+                RSVP
+              </div>
+            )}
+            {(this.state.seconds % 2 === 1) && (
+              <div className="button-silver" onClick={this.toggleRSVP}>
+                RSVP
+              </div>
+            )}
             {(this.state.showRSVP && !this.state.showQuestion) && (
               <div className="rsvp-content ticket-content">
                 <Form>
