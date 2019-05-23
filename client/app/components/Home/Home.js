@@ -24,6 +24,7 @@ class Home extends Component {
       other: '',
       edit: false,
       showModal: false,
+      come: true,
     };
 
     this.toggleRSVP = this.toggleRSVP.bind(this);
@@ -33,6 +34,8 @@ class Home extends Component {
     this.confirmBooking = this.confirmBooking.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.comeToWedding = this.comeToWedding.bind(this);
+    this.notComeToWedding = this.notComeToWedding.bind(this);
   }
 
 
@@ -46,6 +49,19 @@ class Home extends Component {
   ticketOnChange(event) {
     this.setState({ticketNo: event.target.value});
   }
+
+  comeToWedding() {
+    this.setState({
+      come: true
+    });
+  }
+
+  notComeToWedding() {
+    this.setState({
+      come: false
+    });
+  }
+
 
   handleInputChange(event) {
     const target = event.target;
@@ -74,7 +90,8 @@ class Home extends Component {
               guest: detail.guest,
               guestName: detail.guestname ? detail.guestname : '',
               vegan: detail.vegan,
-              other: detail.other ? detail.other : ''
+              other: detail.other ? detail.other : '',
+              come: detail.come !== false,
             });
 
           }
@@ -86,7 +103,12 @@ class Home extends Component {
     axios.post(`/invitation`, { input: this.state })
       .then(res => {
         if (res.data.rowCount === 1) {
-          toast.success('🦉🦉🦉🦉 Your booking has been confirmed. You can edit it by entering the Ticket No again. 🧙🧙🧙🧙', {position: toast.POSITION.BOTTOM_RIGHT});
+          if (this.state.come) {
+            toast.success('🦉🦉🦉🦉 Your booking has been confirmed. You can edit it by entering the Ticket No again. 🧙🧙🧙🧙', {position: toast.POSITION.BOTTOM_RIGHT});
+          } else {
+            toast.info(`🦉🦉🦉🦉 We are so sad that you can't make it. Do let us know next time when you're in town! 🧙🧙🧙🧙`, {position: toast.POSITION.BOTTOM_RIGHT});
+          }
+
           this.setState({
             showQuestion: false,
             showRSVP: false
@@ -165,71 +187,93 @@ class Home extends Component {
               <div className="rsvp-content question-content">
                 { !this.state.edit && (<div>Welcome To The Journey, {this.state.fullName}! </div>)}
                 { this.state.edit && (<div>Welcome Back {this.state.fullName}! Below Are Your Booking Details. </div>)}
+
                 <Form>
                   <Form.Group as={Row}>
                     <Form.Label column sm={4}>
-                      Accompany Guests?
+                      Coming to celebrate?
                     </Form.Label>
-                    <Col sm={8}>
-                      <Form.Control type="number" name="guest" min="0" onChange={this.handleInputChange}
-                                    value={this.state.guest} placeholder="Not Including Yourself"/>
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row}>
-                    <Form.Label column sm={4}>
-                      Kids Or Babies?
-                    </Form.Label>
-                    <Col sm={8}>
-                      <Form.Control type="number" min="0" name="baby" placeholder="Number Of Kids Meals"
-                                    value={this.state.baby} onChange={this.handleInputChange}/>
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row}>
-                    <Form.Label column sm={4}>
-                      Their Names?
-                    </Form.Label>
-                    <Col sm={8}>
-                      <Form.Group>
-                        <Form.Control
-                          as="textarea"
-                          rows="3"
-                          name="guestName"
-                          onChange={this.handleInputChange} value={this.state.guestName}
-                          placeholder="Let us know about guest's full name."
-                        />
+                    <Col sm={8} className="come-div">
+                      <Form.Group controlId="come">
+                        <Form.Check type="checkbox" name="come" checked={this.state.come}
+                                    onChange={this.handleInputChange} label="Yes, Absolutely!"/>
                       </Form.Group>
                     </Col>
                   </Form.Group>
-                  <Form.Group as={Row}>
-                    <Form.Label column sm={4}>
-                      Diet Restriction?
-                    </Form.Label>
-                    <Col sm={8}>
-                      <Form.Group controlId="vegan" className="diet-option">
-                        <Form.Check type="checkbox" name="vegan" checked={this.state.vegan}
-                                    onChange={this.handleInputChange} label="Vegan or Vegetarian"/>
-                      </Form.Group>
-                    </Col>
-                  </Form.Group>
-                  <Form.Group as={Row}>
-                    <Form.Label column sm={4}>
-                     Other
-                    </Form.Label>
-                    <Col sm={8}>
-                      <Form.Group>
-                        <Form.Control
-                          value={this.state.other}
-                          as="textarea"
-                          name="other"
-                          rows="8"
-                          onChange={this.handleInputChange}
-                          placeholder="Let us know about other diet restrictions. Or if you need help with transportation or accommodation"
-                        />
-                      </Form.Group>
-                    </Col>
-                  </Form.Group>
-                  <Button variant="secondary" className="float-right" onClick={this.confirmBooking}>Confirm My Booking</Button>
+                  {!this.state.come && (
+                    <Button variant="secondary" className="float-right" onClick={this.confirmBooking}>Sorry, I can't make it.</Button>
+                  )}
                 </Form>
+
+                { this.state.come && (
+                  <Form>
+                    <Form.Group as={Row}>
+                      <Form.Label column sm={4}>
+                        Accompany Guests?
+                      </Form.Label>
+                      <Col sm={8}>
+                        <Form.Control type="number" name="guest" min="0" onChange={this.handleInputChange}
+                                      value={this.state.guest} placeholder="Not Including Yourself"/>
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                      <Form.Label column sm={4}>
+                        Kids Or Babies?
+                      </Form.Label>
+                      <Col sm={8}>
+                        <Form.Control type="number" min="0" name="baby" placeholder="Number Of Kids Meals"
+                                      value={this.state.baby} onChange={this.handleInputChange}/>
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                      <Form.Label column sm={4}>
+                        Their Names?
+                      </Form.Label>
+                      <Col sm={8}>
+                        <Form.Group>
+                          <Form.Control
+                            as="textarea"
+                            rows="3"
+                            name="guestName"
+                            onChange={this.handleInputChange} value={this.state.guestName}
+                            placeholder="Let us know about guest's full name."
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                      <Form.Label column sm={4}>
+                        Diet Restriction?
+                      </Form.Label>
+                      <Col sm={8}>
+                        <Form.Group controlId="vegan" className="diet-option">
+                          <Form.Check type="checkbox" name="vegan" checked={this.state.vegan}
+                                      onChange={this.handleInputChange} label="Vegan or Vegetarian"/>
+                        </Form.Group>
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                      <Form.Label column sm={4}>
+                        Other
+                      </Form.Label>
+                      <Col sm={8}>
+                        <Form.Group>
+                          <Form.Control
+                            value={this.state.other}
+                            as="textarea"
+                            name="other"
+                            rows="8"
+                            onChange={this.handleInputChange}
+                            placeholder="Let us know about other diet restrictions. Or if you need help with transportation or accommodation"
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Form.Group>
+                    <Button variant="secondary" className="float-right" onClick={this.confirmBooking}>Confirm My Booking</Button>
+                  </Form>
+
+                  )}
+
               </div>
 
             )}

@@ -15,8 +15,8 @@ module.exports = (app) => {
     var datestring = d.getFullYear() + '-' + (d.getMonth()+1)  + "-" + (d.getDate()) + " " +
       d.getHours() + ":" + d.getMinutes();
 
-    db.query('UPDATE invite SET guest=$1, guestname=$2, baby=$3, vegan=$4, other=$5, time=$6 where ticket =$7',
-      [input.guest, input.guestName, input.baby, input.vegan, input.other, datestring, input.ticketNo],(error, result) => {
+    db.query('UPDATE invite SET guest=$1, guestname=$2, baby=$3, vegan=$4, other=$5, time=$6, come=$7 where ticket =$8',
+      [input.guest, input.guestName, input.baby, input.vegan, input.other, datestring, input.come, input.ticketNo],(error, result) => {
         if (error) throw error;
         response.send(result);
       });
